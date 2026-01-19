@@ -53,7 +53,8 @@ class User extends Authenticatable
         return $this->hasOne(Admin::class);
     }
 
-    public function managers(): HasOne
+
+    public function manager(): HasOne
     {
         return $this->hasOne(Manager::class);
     }
@@ -61,5 +62,9 @@ class User extends Authenticatable
     public function students(): HasOne
     {
         return $this->hasOne(related: Student::class);
+    }
+    public function hostel()
+    {
+        return $this->belongsTo(Hostel::class, 'hostel_id');
     }
 }

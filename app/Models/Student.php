@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Student extends Model
@@ -19,6 +18,7 @@ class Student extends Model
     protected $fillable = [
         'user_id',
         'room_id',
+        'hostel_id',
         'dept',
         'year_of_study',
     ];
@@ -32,9 +32,11 @@ class Student extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function room(){
+        return $this->belongsTo(Room::class,'room_id');
+    }
 
-    public function room(): BelongsTo
-    {
-        return $this->belongsTo(Room::class);
+    public function hostel(){
+        return $this->belongsTo(Hostel::class);
     }
 }

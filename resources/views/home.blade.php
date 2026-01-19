@@ -125,13 +125,13 @@
                                         </a>
                                         <ul class="dropdown-menu agile_short_dropdown">
                                             <li>
-                                                <a href="allocated_rooms.php">Allocated Rooms</a>
+                                                <a href="{{ route('rooms.allocated') }}">Allocated Rooms</a>
                                             </li>
                                             <li>
-                                                <a href="empty_rooms.php">Empty Rooms</a>
+                                                <a href="{{ route('rooms.empty') }}">Empty Rooms</a>
                                             </li>
                                             <li>
-                                                <a href="vacate_rooms.php">Vacate Rooms</a>
+                                                <a href="{{ route('rooms.showVacate') }}">Vacate Rooms</a>
                                             </li>
                                         </ul>
                                     </li>

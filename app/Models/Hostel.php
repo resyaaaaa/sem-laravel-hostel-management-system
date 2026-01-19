@@ -26,7 +26,7 @@ class Hostel extends Model
 
     public function rooms(): HasMany
     {
-        return $this->hasMany(Room::class);
+        return $this->hasMany(Room::class );
     }
 
     public function applications(): HasMany

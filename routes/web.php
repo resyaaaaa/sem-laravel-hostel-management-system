@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RoomController;
 use App\Http\Controllers\ApplicationController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,4 +22,23 @@ Route::middleware('auth')->group(function () {
         Route::delete('/application/{application}', 'destroy')->name('application.destroy');
         Route::get('/application/searchRollNo', 'searchRollNo')->name('application.searchRollNo');
     });
+    // --- Resyalizatul-> Room Module ---
+    Route::middleware(['auth', 'manager'])->group(function () {
+    Route::prefix('rooms')->name('rooms.')->group(function () {
+        // Display
+        Route::get('/allocated', [RoomController::class, 'allocated'])->name('allocated');
+        Route::get('/empty', [RoomController::class, 'empty'])->name('empty');
+        // Create
+        Route::get('/create', [RoomController::class, 'create'])->name('create');
+        Route::post('/store', [RoomController::class, 'store'])->name('store');
+        // Editing
+        Route::get('/{room}/edit', [RoomController::class, 'edit'])->name('edit');
+        Route::put('/{room}/update', [RoomController::class, 'update'])->name('update');
+        // Vacate
+        Route::get('/vacate', [RoomController::class, 'showVacate'])->name('showVacate');
+        Route::post('/vacate', [RoomController::class, 'vacate'])->name('vacate');
+        // Delete
+        Route::delete('/{room}', [RoomController::class, 'destroy'])->name('destroy');
+    });});
+
 });

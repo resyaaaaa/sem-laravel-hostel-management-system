@@ -4,13 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Room extends Model
 {
-    /** @use HasFactory<\Database\Factories\RoomFactory> */
     use HasFactory;
 
     protected $fillable = [
@@ -19,18 +15,19 @@ class Room extends Model
         'allocated',
     ];
 
-    public function hostel(): BelongsTo
+    public function hostel()
     {
-        return $this->belongsTo(related: Hostel::class);
+        return $this->belongsTo(Hostel::class,'hostel_id');
     }
 
-    public function students(): HasOne
+    public function student()
     {
-        return $this->hasOne(Student::class);
+        return $this->hasOne(Student::class, 'student_id');
     }
 
-    public function applications(): HasOne
+    public function scopeVacant($query)
     {
-        return $this->hasOne(Application::class);
+        return $query->where('allocated', false);
     }
 }
+

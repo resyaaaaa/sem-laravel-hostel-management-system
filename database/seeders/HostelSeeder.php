@@ -2,8 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Hostel;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
 class HostelSeeder extends Seeder
@@ -13,17 +12,13 @@ class HostelSeeder extends Seeder
      */
     public function run(): void
     {
-        $hostels = [
-            ['hostel_name' => 'A'],
-            ['hostel_name' => 'B'],
-            ['hostel_name' => 'C'],
-            ['hostel_name' => 'D'],
-            ['hostel_name' => 'E'],
-            ['hostel_name' => 'F'],
-        ];
-
-        foreach ($hostels as $hostel) {
-            Hostel::factory()->create($hostel);
-        }
+         DB::table('hostels')->insert([
+            ['id' => 1, 'hostel_name' => 'A', 'created_at' => now(), 'updated_at' => now()],
+            ['id' => 2, 'hostel_name' => 'B', 'created_at' => now(), 'updated_at' => now()],
+            ['id' => 3, 'hostel_name' => 'C', 'created_at' => now(), 'updated_at' => now()],
+            ['id' => 4, 'hostel_name' => 'D', 'created_at' => now(), 'updated_at' => now()],
+            ['id' => 5, 'hostel_name' => 'E', 'created_at' => now(), 'updated_at' => now()],
+            ['id' => 6, 'hostel_name' => 'F', 'created_at' => now(), 'updated_at' => now()],
+        ]);
     }
 }

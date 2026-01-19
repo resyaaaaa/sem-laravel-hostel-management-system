@@ -16,10 +16,11 @@ class Manager extends Model
         'user_id',
     ];
 
-    public function hostel(): BelongsTo
-    {
-        return $this->belongsTo(Hostel::class);
-    }
+    public function hostel()
+{
+    return $this->belongsTo(Hostel::class, 'hostel_id');
+}
+
 
     public function user(): BelongsTo
     {

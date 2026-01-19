@@ -13,7 +13,8 @@ return new class extends Migration {
         Schema::create('students', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->foreignId('room_id')->nullable()->constrained('rooms')->cascadeOnDelete();
+            $table->foreignId('hostel_id')->constrained('hostels')->onDelete('cascade');
+            $table->foreignId('room_id')->nullable()->constrained()->nullOnDelete();
             $table->string('dept');
             $table->string('year_of_study');
             $table->timestamps();
