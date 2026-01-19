@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <meta name="keywords"
-        content="Intrend Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+        content="Intrend Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript">
 		addEventListener("load", function () {
@@ -66,18 +66,18 @@
                                 <a class="nav-link" href="{{ route('application.index') }}">Allocate Rooms</a>
                             </li>
                             <li class="dropdown nav-item">
-                                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Rooms
+                                <a href="{{ route('rooms.allocated') }}" class="dropdown-toggle nav-link" data-toggle="dropdown">Rooms
                                     <b class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu agile_short_dropdown">
                                     <li>
-                                        <a href="allocated_rooms.php">Allocated Rooms</a>
+                                        <a href="{{ route('rooms.allocated') }}">Allocated Rooms</a>
                                     </li>
                                     <li>
-                                        <a href="empty_rooms.php">Empty Rooms</a>
+                                        <a href="{{ route('rooms.empty') }}">Empty Rooms</a>
                                     </li>
                                     <li>
-                                        <a href="vacate_rooms.php">Vacate Rooms</a>
+                                        <a href="{{ route('rooms.vacate') }}">Vacate Rooms</a>
                                     </li>
                                 </ul>
                             </li>
